@@ -204,3 +204,4 @@ Sat Aug 03 2024 12:31:10 GMT+0300 (שעון ישראל (קיץ)) | DELETE | /cat
 Sat Aug 03 2024 12:32:24 GMT+0300 (שעון ישראל (קיץ)) | POST | /category
 Sat Aug 03 2024 12:33:01 GMT+0300 (שעון ישראל (קיץ)) | DELETE | /category/chocoD
 Sat Aug 03 2024 12:34:43 GMT+0300 (שעון ישראל (קיץ)) | DELETE | /category/chocoD
+Sat Aug 03 2024 12:44:54 GMT+0300 (שעון ישראל (קיץ)) | GET | /category
