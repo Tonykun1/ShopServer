@@ -31,10 +31,18 @@ const CreateUser = async (req, res) => {
     res.json({ token });
   } catch (error) {
     console.error('Error:', error);
-    res.status(500).json({ error: 'Internal Server Error' });
+    res.status(404).json({ error: 'Internal Server Error' });
   }
 };
-
+const checkUsers = async (req, res) => {
+  try {
+      const products = await fsReadFile(LoginFile);
+      res.json(products);
+  } catch (error) {
+      console.error(error);
+      res.status(404).json({ error: 'Error reading the file' });
+  }
+}
 const CheckByToken = async (req, res) => {
   const { token } = req.params;
 
@@ -48,8 +56,7 @@ const CheckByToken = async (req, res) => {
       const findUser = users.find((user) => user.name === decoded.name && user.Email === decoded.Email);
 
       if (findUser) {
-        findUser.token = jwt.sign(
-          { name: findUser.name, Email: findUser.Email, id: uuidv4() },
+        findUser.token = jwt.sign({ name: findUser.name, Email: findUser.Email, id: uuidv4() },
           SECRET_KEY,
           { expiresIn: '14d' }
         );
@@ -60,8 +67,24 @@ const CheckByToken = async (req, res) => {
       }
     } catch (error) {
       console.error('Error:', error);
-      res.status(500).json({ error: 'Internal Server Error' });
+      res.status(404).json({ error: 'Internal Server Error' });
     }
   });
 };
-module.exports = { CreateUser, CheckByToken };
+
+const DeleteUser= async (req, res) => {
+  const { token } = req.params;
+
+      const DeleteUser= await fsReadFile(LoginFile);
+      const index = DeleteUser.findIndex(item => item.token === token);
+      if (index === -1) {
+          res.status(404).json({ error: 'Todo not found' });
+          return;
+      }
+
+      DeleteUser.splice(index, 1);
+      
+      await fsWriteFile(LoginFile, DeleteUser);
+          res.json({ message: `user with token ${token} deleted` });
+};
+module.exports = { CreateUser, CheckByToken,DeleteUser,checkUsers };
