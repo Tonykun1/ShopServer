@@ -31,7 +31,7 @@ const CreateUser = async (req, res) => {
     res.json({ token });
   } catch (error) {
     console.error('Error:', error);
-    res.status(404).json({ error: 'Internal Server Error' });
+    res.status(500).json({ error: 'Internal Server Error' });
   }
 };
 const checkUsers = async (req, res) => {
@@ -67,7 +67,7 @@ const CheckByToken = async (req, res) => {
       }
     } catch (error) {
       console.error('Error:', error);
-      res.status(404).json({ error: 'Internal Server Error' });
+      res.status(500).json({ error: 'Internal Server Error' });
     }
   });
 };
@@ -78,7 +78,7 @@ const DeleteUser= async (req, res) => {
       const DeleteUser= await fsReadFile(LoginFile);
       const index = DeleteUser.findIndex(item => item.token === token);
       if (index === -1) {
-          res.status(404).json({ error: 'Todo not found' });
+          res.status(404).json({ error: 'User not found' });
           return;
       }
 
