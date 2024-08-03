@@ -127,4 +127,4 @@ const DeleteItem = async (req, res) => {
 
 };
 
-module.exports = { Welcome, UpdateItem, AddItem, CheckItemByID ,checkItems,DeleteItem};
+module.exports = { Welcome, UpdateItem, AddItem, CheckItemByID ,checkItems,DeleteItem,fsWriteFile,fsReadFile};
