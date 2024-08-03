@@ -208,3 +208,4 @@ Sat Aug 03 2024 12:44:54 GMT+0300 (שעון ישראל (קיץ)) | GET | /catego
 Sat Aug 03 2024 13:08:40 GMT+0300 (שעון ישראל (קיץ)) | GET | /
 Sat Aug 03 2024 13:08:40 GMT+0300 (שעון ישראל (קיץ)) | GET | /favicon.ico
 Sat Aug 03 2024 13:09:12 GMT+0300 (שעון ישראל (קיץ)) | POST | /Login/checkUsers
+Sat Aug 03 2024 13:11:55 GMT+0300 (שעון ישראל (קיץ)) | DELETE | /Login/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoibCIsIkVtYWlsIjoidGFsczJAZ2Z4bWFpbC5jb20iLCJpYXQiOjE3MjI1OTI2OTIsImV4cCI6MTcyMzgwMjI5Mn0.2ukPVYVCYihmOZGO7kWKh0bggavpa6Q3FfxrmmKQJCQ
