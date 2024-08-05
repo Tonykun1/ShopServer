@@ -1,10 +1,10 @@
 const fs = require("fs");
 const { v4: uuidv4 } = require("uuid");
 const jwt = require("jsonwebtoken");
-const SECRET_KEY =
-  "TonySama?1345?fsdfff4?2345?ZXasd?314?vcxh?ers!dfas#fa@fas%$fgdsa";
+const SECRET_KEY ="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVGFsIiwiRW1haWwiOiJ0YWxAZ2Z4bWFpbC5jb20iLCJpZCI6ImY2OGE3ZWFhLTk4YzctNDUzNC1iNmFhLWNmZTBhYzg2ZTU2MyIsImlhdCI6MTcyMTY0MzM1MywiZXhwIjoxNzIyODUyOTUzfQ.QlKu--iqk_-ylVGV4TwEXJJMfUYlFe4SlFjIojLrDDQ";
 const LoginFile = "data/Login.json";
 const {fsReadFile,fsWriteFile} = require("./products")
+
 const CreateUser = async (req, res) => {
   const { name, password, Email } = req.body;
 
@@ -22,7 +22,7 @@ const CreateUser = async (req, res) => {
       return res.status(400).json({ error: 'Email already exists. Please use a different email.' });
     }
 
-    const newUser = { id: uuidv4(), name, password, Email };
+    const newUser = { id: uuidv4(), name, password, Email,role:"visitor"};
     const token = jwt.sign({ name, Email }, SECRET_KEY, { expiresIn: '14d' });
     newUser.token = token;
     users.push(newUser);
@@ -71,7 +71,6 @@ const CheckByToken = async (req, res) => {
     }
   });
 };
-
 const DeleteUser= async (req, res) => {
   const { token } = req.params;
 

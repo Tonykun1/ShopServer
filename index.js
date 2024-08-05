@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors'); 
 const server = express();
-const {Logs}= require("./Modules/middleware")
+const {Logs,isAdmin}= require("./Modules/middleware")
 const {CreateUser,CheckByToken,DeleteUser,checkUsers}=require("./Modules/Login")
 const {Welcome , UpdateItem,AddItem,CheckItemByID,checkItems,DeleteItem} = require("./Modules/products")
 const { UpdateCategory, AddCategory ,checkCategory,DeleteCategory}=require("./Modules/Category")
@@ -28,9 +28,9 @@ server.put('/category/:name', UpdateCategory);
 server.delete('/category/:name', DeleteCategory);
 
 //./Modules/Login
-server.post('/Login/checkUsers',checkUsers)
+server.get('/Login/checkUsers',isAdmin,checkUsers)
 server.post('/Login/CreateUser',CreateUser);
-server.post('/Login/:token',CheckByToken);
+server.post('/Login/checkUsers/:token',CheckByToken);
 server.delete('/Login/:token',DeleteUser);
 
 
