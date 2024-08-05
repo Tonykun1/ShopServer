@@ -44,14 +44,32 @@ const checkTheItem = (updatedProduct) => {
         updatedProduct.meta.createdAt && updatedProduct.meta.updatedAt &&
         updatedProduct.meta.barcode && updatedProduct.meta.qrCode && updatedProduct.images && updatedProduct.thumbnail;
 }
-
+const CheckUpDate=(updatedProduct)=>{
+    return updatedProduct.id|| updatedProduct.title || 
+    updatedProduct.description || 
+    updatedProduct.category || 
+    updatedProduct.price !== undefined || 
+    updatedProduct.discountPercentage !== undefined || 
+    updatedProduct.rating !== undefined || 
+    updatedProduct.stock !== undefined || 
+    updatedProduct.tags || 
+    updatedProduct.brand || 
+    updatedProduct.sku || 
+    updatedProduct.weight !== undefined || 
+    updatedProduct.dimensions || 
+    updatedProduct.warrantyInformation || 
+    updatedProduct.shippingInformation || 
+    updatedProduct.availabilityStatus || 
+    updatedProduct.reviews || 
+    updatedProduct.returnPolicy || 
+    updatedProduct.minimumOrderQuantity !== undefined || 
+    updatedProduct.meta || 
+    updatedProduct.images || 
+    updatedProduct.thumbnail;
+}
 const UpdateItem = async (req, res) => {
     const { id } = req.params;
     const updatedProduct = req.body;
-
-    if (!checkTheItem(updatedProduct)) {
-        return res.status(400).json({ message: 'All fields are required' });
-    }
 
     try {
         const products = await fsReadFile(fileProducts);
@@ -59,14 +77,25 @@ const UpdateItem = async (req, res) => {
         if (productIndex === -1) {
             return res.status(404).json({ error: 'Product not found' });
         }
-        products[productIndex] = { ...products[productIndex], ...updatedProduct };
+
+        const currentProduct = products[productIndex];
+
+        const hasUpdates = CheckUpDate(updatedProduct)
+           
+        if (!hasUpdates) {
+            return res.json(currentProduct);
+        }
+        if (!checkTheItem(updatedProduct)) {
+            return res.status(400).json({ message: 'All fields are required' });
+        }
+
+        products[productIndex] = { ...currentProduct, ...updatedProduct };
         await fsWriteFile(fileProducts, products);
         res.json(products[productIndex]);
     } catch (error) {
         res.status(400).json({ error: 'Error updating product' });
     }
 };
-
 const AddItem = async (req, res) => {
     const newProduct = req.body;
 
@@ -127,4 +156,4 @@ const DeleteItem = async (req, res) => {
 
 };
 
-module.exports = { Welcome, UpdateItem, AddItem, CheckItemByID ,checkItems,DeleteItem};
+module.exports = { Welcome, UpdateItem, AddItem, CheckItemByID ,checkItems,DeleteItem,fsWriteFile,fsReadFile};

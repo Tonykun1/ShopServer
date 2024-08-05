@@ -1,1 +1,57 @@
-[{"id":"63ae85cd-778f-42ef-975c-59cf2a8752d0","name":"tsa","password":"Tft","Email":"fsd@gfxmail.com","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoidHNhIiwiRW1haWwiOiJmc2RAZ2Z4bWFpbC5jb20iLCJpZCI6IjAzMWVmYTEyLTkzNDMtNDJlYy1hYmVmLTFmYzhiZTM3MDQ4MyIsImlhdCI6MTcyMTY0Mjg3MSwiZXhwIjoxNzIyODUyNDcxfQ.L4Uz5wHNqnPNsszcyv7uqhW02gwgy--J4WgSuaPDXL8"},{"id":"62e21e8b-84aa-4a59-b44c-35f3f462e859","name":"Tal","password":"tal1234","Email":"tal@gfxmail.com","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVGFsIiwiRW1haWwiOiJ0YWxAZ2Z4bWFpbC5jb20iLCJpZCI6ImY2OGE3ZWFhLTk4YzctNDUzNC1iNmFhLWNmZTBhYzg2ZTU2MyIsImlhdCI6MTcyMTY0MzM1MywiZXhwIjoxNzIyODUyOTUzfQ.QlKu--iqk_-ylVGV4TwEXJJMfUYlFe4SlFjIojLrDDQ"},{"id":"24b4fa31-1200-4f2d-a9c7-52ff4fbc7ef8","name":"mor","password":"mor1234","Email":"mor@gfxmail.com","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoibW9yIiwiRW1haWwiOiJtb3JAZ2Z4bWFpbC5jb20iLCJpYXQiOjE3MjE2NDMzNzMsImV4cCI6MTcyMjg1Mjk3M30.7wIGl7PL9R-0Bv9qn8HSJe2HWZ2-NqWY00kWFkVHGNI"},{"id":"1d4a7c78-819b-479e-ab2e-d9b9a539dcdd","name":"nisim","password":"nisim1234","Email":"nisim@gfxmail.com","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoibmlzaW0iLCJFbWFpbCI6Im5pc2ltQGdmeG1haWwuY29tIiwiaWF0IjoxNzIxNjQzNDIzLCJleHAiOjE3MjI4NTMwMjN9.vtE_aO4OxdsDveMpvJPFqz5onQIJnskWHlCmJ68vShg"},{"id":"b1d53256-b87f-42e2-9c05-ecad158ec920","name":"John Doe","password":"securepassword","Email":"john.doe@example.com","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSm9obiBEb2UiLCJFbWFpbCI6ImpvaG4uZG9lQGV4YW1wbGUuY29tIiwiaWQiOiIyYmU5N2UwMi00NDAxLTQ2OWItOTI0OS0zYTY1YzM4MGVhZDYiLCJpYXQiOjE3MjI1OTMwODAsImV4cCI6MTcyMzgwMjY4MH0.LcDP6R5qc978Jz_tZaCakNX1GCrR7-sMdrscP37_mMI","lastTokenUpdate":1722593080367},{"id":"010fb6dd-4e4f-4b6d-877f-bd1920c8f24a","name":"l","password":"tal1234","Email":"tal@gfxmail.com","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoibCIsIkVtYWlsIjoidGFsQGdmeG1haWwuY29tIiwiaWF0IjoxNzIyNTkyMjgxLCJleHAiOjE3MjM4MDE4ODF9.T2mx63bvV6zyHnwCw8Dy2kfryV5LM6e43nSoWxbfCJg"},{"id":"d1f5d4ce-427e-479a-a391-7f4426196c4c","name":"l","password":"tal1234","Email":"tal2@gfxmail.com","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoibCIsIkVtYWlsIjoidGFsMkBnZnhtYWlsLmNvbSIsImlhdCI6MTcyMjU5MjQyOCwiZXhwIjoxNzIzODAyMDI4fQ.Vjk0-CqTa3gS17rg_TTDVn2een46r5j5Izy1b0jsPyY"},{"id":"368d5e65-bc00-44ab-93c2-16769ab02e10","name":"l","password":"tal1234","Email":"tals2@gfxmail.com","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoibCIsIkVtYWlsIjoidGFsczJAZ2Z4bWFpbC5jb20iLCJpYXQiOjE3MjI1OTI2OTIsImV4cCI6MTcyMzgwMjI5Mn0.2ukPVYVCYihmOZGO7kWKh0bggavpa6Q3FfxrmmKQJCQ"},{"id":"151fa482-41a8-417b-af00-ff91e089f9a7","name":"l","password":"tal1234","Email":"tals12@gfxmail.com","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoibCIsIkVtYWlsIjoidGFsczEyQGdmeG1haWwuY29tIiwiaWF0IjoxNzIyNTkzOTIzLCJleHAiOjE3MjM4MDM1MjN9.WBwqTwDyIZn3dVqNtgokrtVs88XUutiXjmETrr2S5kk"}]
+[{
+    "id": "63ae85cd-778f-42ef-975c-59cf2a8752d0",
+    "name": "tsa",
+    "password": "Tft",
+    "Email": "fsd@gfxmail.com",
+    "role": "visitor",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoidHNhIiwiRW1haWwiOiJmc2RAZ2Z4bWFpbC5jb20iLCJpZCI6IjAzMWVmYTEyLTkzNDMtNDJlYy1hYmVmLTFmYzhiZTM3MDQ4MyIsImlhdCI6MTcyMTY0Mjg3MSwiZXhwIjoxNzIyODUyNDcxfQ.L4Uz5wHNqnPNsszcyv7uqhW02gwgy--J4WgSuaPDXL8"
+}, {
+    "id": "62e21e8b-84aa-4a59-b44c-35f3f462e859",
+    "name": "Tal",
+    "password": "tal1234",
+    "Email": "tal@gfxmail.com",
+    "role": "admin",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVGFsIiwiRW1haWwiOiJ0YWxAZ2Z4bWFpbC5jb20iLCJpZCI6ImY2OGE3ZWFhLTk4YzctNDUzNC1iNmFhLWNmZTBhYzg2ZTU2MyIsImlhdCI6MTcyMTY0MzM1MywiZXhwIjoxNzIyODUyOTUzfQ.QlKu--iqk_-ylVGV4TwEXJJMfUYlFe4SlFjIojLrDDQ"
+}, {
+    "id": "24b4fa31-1200-4f2d-a9c7-52ff4fbc7ef8",
+    "name": "mor",
+    "password": "mor1234",
+    "Email": "mor@gfxmail.com",
+    "role": "visitor",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoibW9yIiwiRW1haWwiOiJtb3JAZ2Z4bWFpbC5jb20iLCJpYXQiOjE3MjE2NDMzNzMsImV4cCI6MTcyMjg1Mjk3M30.7wIGl7PL9R-0Bv9qn8HSJe2HWZ2-NqWY00kWFkVHGNI"
+}, {
+    "id": "1d4a7c78-819b-479e-ab2e-d9b9a539dcdd",
+    "name": "nisim",
+    "password": "nisim1234",
+    "Email": "nisim@gfxmail.com",
+    "role": "visitor",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoibmlzaW0iLCJFbWFpbCI6Im5pc2ltQGdmeG1haWwuY29tIiwiaWF0IjoxNzIxNjQzNDIzLCJleHAiOjE3MjI4NTMwMjN9.vtE_aO4OxdsDveMpvJPFqz5onQIJnskWHlCmJ68vShg"
+}, {
+    "id": "010fb6dd-4e4f-4b6d-877f-bd1920c8f24a",
+    "name": "l",
+    "password": "tal1234",
+    "Email": "tal@gfxmail.com",
+    "role": "visitor",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoibCIsIkVtYWlsIjoidGFsQGdmeG1haWwuY29tIiwiaWF0IjoxNzIyNTkyMjgxLCJleHAiOjE3MjM4MDE4ODF9.T2mx63bvV6zyHnwCw8Dy2kfryV5LM6e43nSoWxbfCJg"
+}, {
+    "id": "d1f5d4ce-427e-479a-a391-7f4426196c4c",
+    "name": "l",
+    "password": "tal1234",
+    "Email": "tal2@gfxmail.com",
+    "role": "visitor",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoibCIsIkVtYWlsIjoidGFsMkBnZnhtYWlsLmNvbSIsImlhdCI6MTcyMjU5MjQyOCwiZXhwIjoxNzIzODAyMDI4fQ.Vjk0-CqTa3gS17rg_TTDVn2een46r5j5Izy1b0jsPyY"
+}, {
+    "id": "151fa482-41a8-417b-af00-ff91e089f9a7",
+    "name": "l",
+    "password": "tal1234",
+    "Email": "tals12@gfxmail.com",
+    "role": "visitor",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoibCIsIkVtYWlsIjoidGFsczEyQGdmeG1haWwuY29tIiwiaWF0IjoxNzIyNTkzOTIzLCJleHAiOjE3MjM4MDM1MjN9.WBwqTwDyIZn3dVqNtgokrtVs88XUutiXjmETrr2S5kk"
+}, {
+    "id": "f9d9ed05-db15-4206-9b6a-ec714dd96ee3",
+    "name": "l",
+    "password": "tal1234",
+    "Email": "talsa12@gfxmail.com",
+    "role": "visitor",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoibCIsIkVtYWlsIjoidGFsc2ExMkBnZnhtYWlsLmNvbSIsImlhdCI6MTcyMjg1NjkxNiwiZXhwIjoxNzI0MDY2NTE2fQ.0fSZrSSO86qEx1GOQIdjeKKDaTZ2Xk3KfKUE0j58roI"
+}]

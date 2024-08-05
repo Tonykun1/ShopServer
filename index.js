@@ -1,26 +1,38 @@
 const express = require('express');
 const cors = require('cors'); 
 const server = express();
-const {Logs}= require("./Modules/middleware")
-const {CreateUser,CheckByToken}=require("./Modules/Login")
+const {Logs,isAdmin}= require("./Modules/middleware")
+const {CreateUser,CheckByToken,DeleteUser,checkUsers}=require("./Modules/Login")
 const {Welcome , UpdateItem,AddItem,CheckItemByID,checkItems,DeleteItem} = require("./Modules/products")
-
+const { UpdateCategory, AddCategory ,checkCategory,DeleteCategory}=require("./Modules/Category")
 const port = process.env.PORT || 3050;
 
 server.use(cors()); 
 server.use(express.json());
-//Login.js
+
+//./Modules/middleware
 server.use(Logs);
-//Products.js
+
+//./Modules/products
 server.get('/', Welcome);
 server.get('/products', checkItems);
 server.get('/products/:id', CheckItemByID);
 server.post('/products', AddItem);
 server.put('/products/:id', UpdateItem);
 server.delete('/products/:id', DeleteItem);
-//Login.js
+
+//./Modules/Category
+server.get('/category', checkCategory);
+server.post('/category', AddCategory);
+server.put('/category/:name', UpdateCategory);
+server.delete('/category/:name', DeleteCategory);
+
+//./Modules/Login
+server.get('/Login/checkUsers',isAdmin,checkUsers)
 server.post('/Login/CreateUser',CreateUser);
-server.post('/Login/:token',CheckByToken);
+server.post('/Login/checkUsers/:token',CheckByToken);
+server.delete('/Login/:token',DeleteUser);
+
 
 
 server.listen(port, () => {

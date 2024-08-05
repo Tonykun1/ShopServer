@@ -1,9 +1,10 @@
 {
-  "name": "todolistserver",
+  "name": "servershop",
   "version": "0.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start":"nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -15,5 +16,11 @@
     "jsonwebtoken": "^9.0.2",
     "nanoid": "^5.0.7",
     "uuid": "^10.0.0"
+  }  ,
+  "nodemonConfig": {
+    "ignore": [
+      "/data/.txt",
+      "/data/*json"
+    ]
   }
 }
