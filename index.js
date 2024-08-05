@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const { Logs, isAdmin,authToken} = require('./Modules/middleware');
-const { CreateUser, CheckByToken, DeleteUser, checkUsers } = require('./Modules/Login');
+const { CreateUser, CheckByToken, DeleteUser, checkUsers ,WelcomeUser} = require('./Modules/Login');
 const { Welcome, UpdateItem, AddItem, CheckItemByID, checkItems, DeleteItem } = require('./Modules/products');
 const { UpdateCategory, AddCategory, checkCategory, DeleteCategory } = require('./Modules/Category');
 
@@ -29,9 +29,7 @@ server.delete('/category/:name', DeleteCategory);
 
 server.get('/Login/checkUsers', isAdmin, checkUsers);//u need the token of admin for it 
 server.post('/Login/CreateUser', CreateUser);
-server.get('/Login', authToken,(req, res)=>{
-    res.json({ message: `Welcome ${req.user.name}` });
-});//לא ידעתי מה אתה רוצה ככה הוא כמו עם הcheckByToken
+server.get('/Login', authToken,WelcomeUser);//לא ידעתי מה אתה רוצה ככה הוא כמו עם הcheckByToken
 server.post('/Login/checkUsers/:token', CheckByToken);
 server.delete('/Login/:token', DeleteUser);
 

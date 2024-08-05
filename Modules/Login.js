@@ -9,32 +9,35 @@ const CreateUser = async (req, res) => {
   const { name, password, Email } = req.body;
 
   if (!name || !password || !Email) {
-    return res.status(400).json({
-      error: 'Missing required fields: name, password, and Email are required.',
-    });
+      return res.status(400).json({
+          error: 'Missing required fields: name, password, and Email are required.',
+      });
   }
 
   try {
-    let users = await fsReadFile(LoginFile);
-    const existingUser = users.find((user) => user.Email === Email);
+      let users = await fsReadFile(LoginFile);
 
-    if (existingUser) {
-      return res.status(400).json({ error: 'Email already exists. Please use a different email.' });
-    }
+      const existingUser = users.find((user) => user.Email === Email);
 
-    const newUser = { id: uuidv4(), name, password, Email, role: "visitor" };
-    const token = jwt.sign({ name, Email }, SECRET_KEY, { expiresIn: '14d' });
-    newUser.token = token;
-    users.push(newUser);
+      if (existingUser) {
+          return res.status(400).json({ error: 'Email already exists. Please use a different email.' });
+      }
 
-    await fsWriteFile(LoginFile, users);
-    res.json({ token });
+      const newUser = { id: uuidv4(), name, password, Email, role: "visitor" };
+      const token = jwt.sign({ name, Email }, SECRET_KEY, { expiresIn: '14d' });
+      newUser.token = token;
+      users.push(newUser);
+
+      await fsWriteFile(LoginFile, users);
+      res.json({ token });
   } catch (error) {
-    console.error('Error:', error);
-    res.status(500).json({ error: 'Internal Server Error' });
+      console.error('Error:', error);
+      res.status(500).json({ error: 'Internal Server Error' });
   }
 };
-
+const WelcomeUser=(req, res)=>{
+  res.json({ message: `Welcome ${req.user.name}` });
+}
 const checkUsers = async (req, res) => {
   try {
     const users = await fsReadFile(LoginFile);
@@ -109,4 +112,4 @@ const DeleteUser = async (req, res) => {
   }
 };
 
-module.exports = { CreateUser, CheckByToken, DeleteUser, checkUsers };
+module.exports = { CreateUser, CheckByToken, DeleteUser, checkUsers ,WelcomeUser};

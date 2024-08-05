@@ -10,14 +10,21 @@ const Welcome = (req, res) => {
 const fsReadFile = (filePath) => {
     return new Promise((res, rej) => {
         fs.readFile(filePath, 'utf8', (error, data) => {
-            if (!error && data) {
-                res(JSON.parse(data));
+            if (!error) {
+                if (data) {
+                    res(JSON.parse(data));
+                } else {
+                    res([]);
+                }
+            } else if (error.code === 'ENOENT') {
+                res([]); 
             } else {
                 rej(error);
             }
         });
     });
-}
+};
+
 
 const fsWriteFile = (filePath, data) => {
     return new Promise((res, rej) => {
