@@ -1,9 +1,9 @@
 const fs = require("fs");
 const { v4: uuidv4 } = require("uuid");
 const jwt = require("jsonwebtoken");
-const SECRET_KEY ="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVGFsIiwiRW1haWwiOiJ0YWxAZ2Z4bWFpbC5jb20iLCJpZCI6ImY2OGE3ZWFhLTk4YzctNDUzNC1iNmFhLWNmZTBhYzg2ZTU2MyIsImlhdCI6MTcyMTY0MzM1MywiZXhwIjoxNzIyODUyOTUzfQ.QlKu--iqk_-ylVGV4TwEXJJMfUYlFe4SlFjIojLrDDQ";
+const SECRET_KEY = "TonySama?1345?fsdfff4?2345?ZXasd?314?vcxh?ers!dfas#fa@fas%$fgdsa"; 
 const LoginFile = "data/Login.json";
-const {fsReadFile,fsWriteFile} = require("./products")
+const { fsReadFile, fsWriteFile } = require("./products");
 
 const CreateUser = async (req, res) => {
   const { name, password, Email } = req.body;
@@ -22,7 +22,7 @@ const CreateUser = async (req, res) => {
       return res.status(400).json({ error: 'Email already exists. Please use a different email.' });
     }
 
-    const newUser = { id: uuidv4(), name, password, Email,role:"visitor"};
+    const newUser = { id: uuidv4(), name, password, Email, role: "visitor" };
     const token = jwt.sign({ name, Email }, SECRET_KEY, { expiresIn: '14d' });
     newUser.token = token;
     users.push(newUser);
@@ -34,56 +34,79 @@ const CreateUser = async (req, res) => {
     res.status(500).json({ error: 'Internal Server Error' });
   }
 };
+
 const checkUsers = async (req, res) => {
   try {
-      const products = await fsReadFile(LoginFile);
-      res.json(products);
+    const users = await fsReadFile(LoginFile);
+    res.json(users);
   } catch (error) {
-      console.error(error);
-      res.status(404).json({ error: 'Error reading the file' });
+    console.error(error);
+    res.status(404).json({ error: 'Error reading the file' });
   }
-}
+};
+
 const CheckByToken = async (req, res) => {
   const { token } = req.params;
 
+  console.log('Received token:', token); // Log received token
+
   jwt.verify(token, SECRET_KEY, async (err, decoded) => {
     if (err) {
+      console.error('Token verification error:', err); // Log token verification errors
       return res.status(401).json({ error: 'Invalid token' });
     }
 
     try {
-      let users = await fsReadFile(LoginFile);
-      const findUser = users.find((user) => user.name === decoded.name && user.Email === decoded.Email);
+      const users = await fsReadFile(LoginFile);
+      console.log('Users from file:', users); 
 
-      if (findUser) {
-        findUser.token = jwt.sign({ name: findUser.name, Email: findUser.Email, id: uuidv4() },
-          SECRET_KEY,
-          { expiresIn: '14d' }
-        );
+
+      const matchingUsers = users.filter(user => user.token === token);
+      console.log('Matching users:', matchingUsers); 
+
+      if (matchingUsers.length > 0) {
+        
+        matchingUsers.map(user => {
+          user.token = jwt.sign({ 
+            name: user.name, 
+            Email: user.Email, 
+            id: uuidv4(), 
+            password: user.password, 
+            role: user.role 
+          }, SECRET_KEY, { expiresIn: '14d' });
+        });
+
         await fsWriteFile(LoginFile, users);
-        res.json(findUser);
+        res.json(matchingUsers);
       } else {
-        res.status(404).json({ error: 'User not found' });
+        res.status(404).json({ error: 'No users found with the provided token' });
       }
     } catch (error) {
-      console.error('Error:', error);
-      res.status(500).json({ error: 'Internal Server Error' });
+      console.error('Internal server error:', error); 
+      res.status(500).json({ error: 'Internal server error' });
     }
   });
 };
-const DeleteUser= async (req, res) => {
+
+
+const DeleteUser = async (req, res) => {
   const { token } = req.params;
 
-      const DeleteUser= await fsReadFile(LoginFile);
-      const index = DeleteUser.findIndex(item => item.token === token);
-      if (index === -1) {
-          res.status(404).json({ error: 'User not found' });
-          return;
-      }
+  try {
+    const users = await fsReadFile(LoginFile);
+    const index = users.findIndex(item => item.token === token);
+    if (index === -1) {
+      return res.status(404).json({ error: 'User not found' });
+    }
 
-      DeleteUser.splice(index, 1);
-      
-      await fsWriteFile(LoginFile, DeleteUser);
-          res.json({ message: `user with token ${token} deleted` });
+    users.splice(index, 1);
+
+    await fsWriteFile(LoginFile, users);
+    res.json({ message: `User with token ${token} deleted` });
+  } catch (error) {
+    console.error('Error:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
 };
-module.exports = { CreateUser, CheckByToken,DeleteUser,checkUsers };
+
+module.exports = { CreateUser, CheckByToken, DeleteUser, checkUsers };

@@ -6,7 +6,7 @@ const fileCategory = 'data/Category.json';
 const fileArchiveCat =  'data/ArchiveCategory.json';
 
 const checkTheItem = (product) => {
-  return product.slug !== '' && product.name !== '' && product.url !== '';
+  return product.slug && product.name && product.url;
 };
 
 const UpdateCategory = async (req, res) => {

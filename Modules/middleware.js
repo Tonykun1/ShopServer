@@ -1,6 +1,9 @@
 const fs = require("fs");
-const path = require('path'); 
-const file = path.join(__dirname, '..', 'data', 'Login.json'); 
+const path = require('path');
+const jwt = require('jsonwebtoken');
+const file = path.join(__dirname, '..', 'data', 'Login.json');
+const SECRET_KEY = "TonySama?1345?fsdfff4?2345?ZXasd?314?vcxh?ers!dfas#fa@fas%$fgdsa"; 
+
 
 const Logs = (req, res, next) => {
   const logEntry = `${new Date()} | ${req.method} | ${req.url}\n`;
@@ -15,7 +18,7 @@ const Logs = (req, res, next) => {
 };
 
 const isAdmin = (req, res, next) => {
-  const token = req.query.token;
+  const token = req.query.token ; 
 
   if (!token) {
     console.log('No token provided');
@@ -25,7 +28,7 @@ const isAdmin = (req, res, next) => {
   fs.readFile(file, 'utf-8', (error, data) => {
     if (error) {
       console.error('Error reading file:', error);
-      return res.status(404).json({ error: 'File not found', error});
+      return res.status(404).json({ error: 'File not found', error });
     }
 
     try {
@@ -45,5 +48,6 @@ const isAdmin = (req, res, next) => {
     }
   });
 };
+
 
 module.exports = { Logs, isAdmin };
